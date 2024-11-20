@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Copy Card</title>
+</head>
+<body>
+    <script>
+        // Получаем параметр value из URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const cardNumber = urlParams.get('value');
+
+        if (cardNumber) {
+            // Копируем номер карты в буфер обмена
+            navigator.clipboard.writeText(cardNumber).then(() => {
+                alert(`Номер карты ${cardNumber} скопирован в буфер обмена.`);
+                window.history.back(); // Возврат назад
+            });
+        } else {
+            alert('Номер карты не найден.');
+        }
+    </script>
+</body>
+</html>
